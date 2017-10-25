@@ -413,7 +413,7 @@ function curlGet($url, $method = 'get', $data = '')
 <script src="js/islider.js"></script>
 <script src="js/index.js"></script>
 <script src="js/config.js?v=13"></script>
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=23"></script>
 
 <script type="text/javascript">
     window.loadingAn = true;
@@ -483,10 +483,6 @@ function curlGet($url, $method = 'get', $data = '')
 <script>
     preloadImg({
         source: [
-            'cover_bg.png',
-            'cover_jd.png',
-            'cover_t1.png',
-            'cover_t2.png',
             'cover_line.png',
             'hai.png',
             'hengchang.png'
