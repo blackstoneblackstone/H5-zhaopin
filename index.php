@@ -154,14 +154,6 @@ function curlGet($url, $method = 'get', $data = '')
                 <!--<div id="t3" class="p2-t" style="left: -0.6rem;top:9.2rem;">活动行程</div>-->
                 <!--<div id="t4" class="p2-t" style="left: -0.6rem;top:12.2rem;">高管简介</div>-->
                 <!--<div id="t5" class="p2-t" style="left: -0.6rem;top:15.2rem;">加入我们</div>-->
-                <img data-src="./images/line.png" id="p2Line" class="line">
-                <img data-src="./images/logo.png" id="p2Logo1" class="p2-logo" style="transform: scale(1);opacity:1">
-                <img data-src="./images/g1.png" id="pg1" class="pg" style="transform: scale(1);opacity: 0.6">
-                <img data-src="./images/g2.png" id="pg2" class="pg" style="transform: scale(1);opacity: 0.6">
-                <img data-src="./images/g3.png" id="pg3" class="pg" style="transform: scale(1);opacity: 0.6">
-                <img data-src="./images/g4.png" id="pg4" class="pg" style="transform: scale(1);opacity: 0.6">
-                <img data-src="./images/g5.png" id="pg5" class="pg" style="transform: scale(1);opacity: 0.6">
-                <img data-src="./images/logo.png" id="p2Logo2" class="p2-logo" style="transform: scale(1);opacity:1">
             </div>
         </div>
         <div class="part part3" id="p3">

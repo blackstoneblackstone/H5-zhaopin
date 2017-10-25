@@ -570,6 +570,17 @@ P5.prototype = {
         });
         $p5.classList.add("in")
         anime({
+            targets: '#p5Guide',
+            scale: 1,
+            rotate: "-30deg",
+            duration: 500,
+            delay:100,
+            easing: 'linear',
+            complete: function () {
+                document.getElementById("p5Guide").style.animation = "guideAn 1s infinite"
+            }
+        })
+        anime({
             targets: '.p5l',
             rotateY: '360deg',
             opacity: 1,
@@ -579,16 +590,6 @@ P5.prototype = {
             duration: 500,
             easing: 'linear',
             complete: function () {
-                anime({
-                    targets: '#p5Guide',
-                    scale: 1,
-                    rotate: "-30deg",
-                    duration: 500,
-                    easing: 'linear',
-                    complete: function () {
-                        document.getElementById("p5Guide").style.animation = "guideAn 1s infinite"
-                    }
-                })
                 anime({
                     targets: '.p5l',
                     rotateY: 0,
