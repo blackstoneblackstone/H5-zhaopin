@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="445efe56-c00d-42fd-abf5-e12e9287fec4" name="微培训" url="http://123.57.237.121">
-        <fileTransfer host="123.57.237.121" port="22" rootFolder="/opt/userdata/games/canvas" accessType="SFTP">
+        <fileTransfer host="123.57.237.121" port="22" rootFolder="/opt/userdata/wxcms/games/hc" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

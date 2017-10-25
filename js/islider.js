@@ -49,7 +49,7 @@ iSlider.prototype._setting = function () {
   this.onslidechange = opts.onslidechange;
   //Slide time gap
   this.duration = opts.duration || 2000;
-
+  this.sliderIndex = opts.sliderIndex;
   //debug mode
   this.log = opts.isDebug ? function (str) {
     console.log(str)
@@ -392,13 +392,11 @@ iSlider.prototype._bindHandler = function () {
         offset = self._damping(offset);
       }
     }
-
     for (var i = 0; i < 3; i++) {
       var item = self.els[i];
       item.style.webkitTransition = 'all 0s';
       self._animateFunc(item, axis, self.scale, i, offset);
     }
-
     self.offset = offset;
   };
 
@@ -457,7 +455,7 @@ iSlider.prototype.play = function (n) {
   }, duration);
 };
 iSlider.prototype.jump = function (n) {
-    this._slide(n)
+  this._slide(n)
 }
 //pause autoplay
 iSlider.prototype.pause = function () {

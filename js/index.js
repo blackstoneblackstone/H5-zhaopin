@@ -3,119 +3,7 @@ function Dot(t, i) {
     this.config = i,
     this.init()
 }
-function Slider(t, i) {
-  this.container = t,
-    this.options = i,
-    this.init()
-}
 
-var detail = {
-  $starry: document.querySelector(".starry"),
-  $stars: document.querySelectorAll(".starry_stars .star"),
-  $dt: document.querySelector(".detail"),
-  $dtTxtMain: document.querySelector(".detail_main"),
-  $dtTxtItems: document.querySelectorAll(".detail_item"),
-  $dtMenu: document.querySelector(".detail_menu"),
-  $dtMenuItems: document.querySelectorAll(".detail_menu .item"),
-  $dtCloses: document.querySelectorAll(".detail_close"),
-  $bg: document.querySelector(".bg"),
-  len: 6,
-  dthide: !0,
-  first: !0,
-  init: function () {
-    this.starTouch(),
-      this.detailMenuTouch(),
-      this.detailClose()
-  },
-  starTouch: function () {
-    for (var t, i = this, e = 0; e < i.len; e++)
-      i.$stars[e].addEventListener("touchstart", function () {
-        t = this.dataset.id - 1,
-          i.detailShow(t)
-      })
-  },
-  detailMenuTouch: function () {
-    for (var t, i = this, e = 0; e < i.len; e++)
-      i.$dtMenuItems[e].addEventListener("touchstart", function () {
-        t = this.dataset.id - 1,
-          i.dthide ? i.detailShow(t) : i.detailSlider(t)
-      })
-  },
-  detailClose: function () {
-    for (var t, i = this, e = 0; e < i.len; e++)
-      i.$dtCloses[e].addEventListener("touchstart", function () {
-        t = this.dataset.id - 1,
-          i.detailHide(t)
-      })
-  },
-  detailShow: function (t) {
-    var i = this;
-    i.$starry.className = "starry off",
-      track.animateOut(),
-      i.$bg.className = "bg on",
-      i.$dt.className = "detail detail" + (t + 1) + " on",
-      i.$dtMenu.className = "detail_menu detail_menu" + (t + 1),
-      i.$dtTxtMain.style.webkitTransform = "translate3d(-" + 12.9186 * t + "rem,0,0)",
-      setTimeout(function () {
-        i.$dtTxtMain.style.webkitTransition = "all 1s"
-      }, 0),
-      i.detailClassAdd(t),
-      i.$dtTxtItems[t].classList.add("act"),
-      i.detailSlider(t),
-      i.dthide = !1,
-      i.slider.play(),
-      pageslider.pause()
-  },
-  detailHide: function (t) {
-    var i = this;
-    i.dthide = !0,
-      i.$starry.className = "starry on",
-      track.animateIn(),
-      i.$bg.className = "bg off",
-      i.$dt.className = "detail off",
-      i.$dtMenu.className = "detail_menu",
-      i.$dtTxtMain.style.webkitTransition = "none",
-      i.detailClassAdd(t),
-      i.slider.pause(),
-      pageslider.play()
-  },
-  detailClassAdd: function (t) {
-    for (var i = this, e = function () {
-      this.classList.remove("pre"),
-        this.classList.remove("cur"),
-        this.classList.remove("next")
-    }
-           , s = 0; s < i.len; s++)
-      i.$dtTxtItems[s].addEventListener("webkitAnimationEnd", e);
-    i.$dtTxtItems[t].classList.add("cur"),
-      0 == t ? i.$dtTxtItems[t + 1].classList.add("next") : t == i.len - 1 ? i.$dtTxtItems[t - 1].classList.add("pre") : (i.$dtTxtItems[t - 1].classList.add("pre"),
-        i.$dtTxtItems[t + 1].classList.add("next"))
-  },
-  detailSlider: function (t) {
-    var i = this;
-    detail.slider ? detail.slider.slide(t) : detail.slider = new Slider(document.querySelector(".detail_main"), {
-      direction: "x",
-      cur: t,
-      onSlide: function () {
-        i.$dt.className = "detail detail" + (this.current + 1) + " on",
-          i.$dtMenu.className = "detail_menu detail_menu" + (this.current + 1);
-        for (var t = function () {
-          this.classList.remove("move")
-        }
-               , e = 0; e < i.len; e++)
-          i.$dtTxtItems[e].classList.remove("act"),
-          i.dthide && !i.first || i.$dtTxtItems[e].classList.add("move"),
-            i.$dtTxtItems[e].addEventListener("webkitAnimationEnd", t);
-        i.first = !1,
-          i.$dtTxtItems[this.current].classList.add("act"),
-          i.$dtTxtMain.style.webkitTransform = "translate3d(-" + 12.9186 * this.current + "rem,0,0)",
-          setTimeout(function () {
-            i.$dtTxtMain.style.webkitTransition = "all 1s"
-          }, 0)
-      }
-    })
-  }
-};
 Dot.prototype = {
   init: function () {
     var t = this.config;
@@ -242,7 +130,7 @@ Circle.prototype = {
         rad: e,
         r: 1.5,
         parent: this,
-        color: "#4d4e72"
+        color: "rgba(252,210,48,0.5)"
       });
       this.dots.push(c)
     }
@@ -358,12 +246,12 @@ var AudioPlayer = function () {
       this.audio = null
   }
 };
-var isPlay=false;
+var isPlay = false;
 for (var key in AP)
   AudioPlayer.prototype[key] = AP[key];
 var bgm = new AudioPlayer;
 bgm.construct({
-  src: "images/music.mp3",
+  src: "images/music2.mp3",
   autoplay: !0
 });
 var music = {
@@ -385,12 +273,14 @@ var music = {
   }
 };
 music.init();
-document.body.addEventListener("touchstart",bodyPlay)
-function bodyPlay() {
-  if(!isPlay){
+document.body.addEventListener("touchstart", bodyPlay)
+function bodyPlay(e) {
+  e.stopPropagation()
+  if (!isPlay) {
     bgm.play()
-    isPlay=true;
-  }else{
-    document.body.removeEventListener("touchstart",bodyPlay)
+    isPlay = true;
+    document.body.removeEventListener("touchstart", bodyPlay)
+  } else {
+    document.body.removeEventListener("touchstart", bodyPlay)
   }
 }
