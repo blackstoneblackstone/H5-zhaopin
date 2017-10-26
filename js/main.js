@@ -16,6 +16,7 @@ function touchStart(e) {
 }
 
 function clickP1(e) {
+    MtaH5.clickStat("linkin");
     p1.next()
 }
 
@@ -163,7 +164,10 @@ function p6Touch() {
 function p7Touch() {
     document.getElementById("baoming").addEventListener("touchstart", function (e) {
         e.stopPropagation()
-        window.location.href = "https://www.linkedin.com/company/6666770/"
+        setTimeout(function () {
+            window.location.href = "https://www.linkedin.com/company/6666770/"
+        },300)
+        MtaH5.clickStat("linkin");
     });
     document.getElementById("p7").removeEventListener("touchstart", touchStart);
     document.getElementById("p7").removeEventListener("touchend", p7TouchEnd);

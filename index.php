@@ -412,8 +412,8 @@ function curlGet($url, $method = 'get', $data = '')
 <script src="js/anime.min.js"></script>
 <script src="js/islider.js"></script>
 <script src="js/index.js"></script>
-<script src="js/config.js?v=13"></script>
-<script src="js/main.js?v=23"></script>
+<script src="js/config.js?v=123"></script>
+<script src="js/main.js?v=232d2"></script>
 
 <script type="text/javascript">
     window.loadingAn = true;
@@ -611,12 +611,12 @@ function curlGet($url, $method = 'get', $data = '')
     var _mtac = {};
     (function () {
         var mta = document.createElement("script");
-        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
         mta.setAttribute("name", "MTAH5");
         mta.setAttribute("sid", "500539127");
+        mta.setAttribute("cid", "500539134");
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(mta, s);
-
         wx.config(
             <?php echo $wxParams;?>
         );
